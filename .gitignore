@@ -36,3 +36,5 @@ next-env.d.ts
 # meta tools
 .meta-panel-trigger
 meta.bat
+
+.vercel
