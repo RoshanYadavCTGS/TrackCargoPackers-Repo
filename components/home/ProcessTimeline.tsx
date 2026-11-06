@@ -3,28 +3,24 @@ import { ClipboardCheck, Package, Truck, Home, ArrowRight } from "lucide-react";
 export default function ProcessTimeline() {
   const steps = [
     {
-      num: "01",
       icon: ClipboardCheck,
       title: "Free Pre-Move Survey",
       subtitle: "Virtual or Doorstep",
       desc: "Our move specialist visits your home or reviews a video walk-through to assess volume, fragile assets, elevator access, and packing needs.",
     },
     {
-      num: "02",
       icon: Package,
       title: "Systematic Multi-Layer Pack",
       subtitle: "Trained Carpenters & Crew",
       desc: "Uniformed experts arrive with 5-ply cartons, bubble wrap, wardrobe boxes, and foam pads. Furniture is dismantled and color-coded.",
     },
     {
-      num: "03",
       icon: Truck,
       title: "GPS-Tracked Safe Transit",
       subtitle: "Dedicated Sealed Containers",
       desc: "Goods are loaded using hydraulic lifters and secured with ratchet belts. Real-time satellite updates track the truck directly to destination.",
     },
     {
-      num: "04",
       icon: Home,
       title: "Unpacking & Reassembly",
       subtitle: "Complete Room Placement",
@@ -37,7 +33,7 @@ export default function ProcessTimeline() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange/10 text-orange font-bold text-xs uppercase tracking-wider mb-3">
-            <span>Seamless 4-Step Methodology</span>
+            <span>Seamless Relocation Methodology</span>
           </div>
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-navy tracking-tight">
             How Track Cargo Executes Your Move
@@ -56,14 +52,9 @@ export default function ProcessTimeline() {
                 key={idx}
                 className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft hover:shadow-lg transition-all relative flex flex-col group"
               >
-                {/* Step badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-orange/10 text-orange flex items-center justify-center group-hover:bg-orange group-hover:text-white transition-colors">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <span className="font-heading font-extrabold text-3xl text-slate-200 group-hover:text-orange/20 transition-colors">
-                    {step.num}
-                  </span>
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-2xl bg-orange/10 text-orange flex items-center justify-center group-hover:bg-orange group-hover:text-white transition-colors mb-4">
+                  <Icon className="w-6 h-6" />
                 </div>
 
                 <div className="text-[11px] font-bold text-orange uppercase tracking-wider mb-1">
@@ -75,11 +66,6 @@ export default function ProcessTimeline() {
                 <p className="text-xs text-slate-600 leading-relaxed flex-grow">
                   {step.desc}
                 </p>
-
-                {/* Subtle indicator */}
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
-                  <span>Phase {step.num} Execution</span>
-                </div>
               </div>
             );
           })}

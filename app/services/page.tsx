@@ -2,14 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { servicesData } from "@/data/services";
 import {
-  PackageCheck,
-  Truck,
-  Home,
-  Building2,
-  Car,
-  Bike,
-  Globe,
-  Warehouse,
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
@@ -19,17 +11,6 @@ export const metadata = {
   title: "Relocation & Shifting Services - Track Cargo Packers & Movers",
   description:
     "Explore our complete range of shifting services in Chennai and across India: Household moving, corporate shifting, car carriers, bike transport, and climate-controlled warehousing.",
-};
-
-const iconMap: Record<string, any> = {
-  PackageCheck,
-  Truck,
-  Home,
-  Building2,
-  Car,
-  Bike,
-  Globe,
-  Warehouse,
 };
 
 export default function ServicesPage() {
@@ -56,7 +37,6 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
             {servicesData.map((service, idx) => {
-              const Icon = iconMap[service.icon] || PackageCheck;
               const isEven = idx % 2 === 0;
 
               return (
@@ -78,12 +58,6 @@ export default function ServicesPage() {
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 40vw"
                     />
-                    <div className="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/95 backdrop-blur-md text-orange flex items-center justify-center shadow-lg">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-xs font-semibold">
-                      {service.pricingRange}
-                    </div>
                   </div>
 
                   {/* Text side */}
@@ -92,8 +66,13 @@ export default function ServicesPage() {
                       isEven ? "lg:order-2" : "lg:order-1"
                     }`}
                   >
-                    <div className="text-xs font-bold text-orange uppercase tracking-wider">
-                      {service.tagline}
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <span className="text-xs font-bold text-orange uppercase tracking-wider">
+                        {service.tagline}
+                      </span>
+                      <span className="text-[11px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full border border-slate-200">
+                        {service.pricingRange}
+                      </span>
                     </div>
                     <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-navy">
                       {service.title}

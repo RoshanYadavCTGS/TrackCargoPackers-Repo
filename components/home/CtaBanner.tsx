@@ -9,21 +9,21 @@ export default function CtaBanner() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-r from-navy-950 via-navy-900 to-navy-800 text-white relative overflow-hidden">
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-orange/20 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-10 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+    <section className="py-16 sm:py-20 bg-navy-950 bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 text-white relative overflow-hidden border-t border-white/10">
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-orange/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-10 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 backdrop-blur-md shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="bg-gradient-to-r from-navy-900 via-navy-800/90 to-navy-900 border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange/20 text-orange font-bold text-xs uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange/15 border border-orange/30 text-orange font-bold text-xs uppercase tracking-wider mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Priority Relocation Booking</span>
             </div>
             <h2 className="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-tight leading-snug">
               Ready for a Seamless, Zero-Damage Move?
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+            <p className="text-slate-200 text-sm sm:text-base mt-3 leading-relaxed">
               Book your free volumetric home assessment today. Get a guaranteed binding quote with 100% transit insurance included.
             </p>
 

@@ -206,31 +206,28 @@ export default function Navbar() {
                       </div>
 
                       <div className="grid grid-cols-2 gap-2">
-                        {servicesList.map((srv) => (
-                          <Link
-                            key={srv.slug}
-                            href={`/${srv.slug}`}
-                            className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition group"
-                          >
-                            <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 border border-white/10 group-hover:border-orange transition-colors">
-                              <Image
-                                src={srv.image}
-                                alt={srv.title}
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                sizes="48px"
-                              />
-                            </div>
-                            <div className="flex-grow min-w-0">
-                              <div className="text-sm font-semibold text-white group-hover:text-orange transition-colors truncate">
-                                {srv.title}
+                        {servicesList.map((srv) => {
+                          const IconComp = srv.icon;
+                          return (
+                            <Link
+                              key={srv.slug}
+                              href={`/${srv.slug}`}
+                              className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/10 transition group"
+                            >
+                              <div className="w-10 h-10 rounded-xl bg-orange/15 border border-orange/25 flex items-center justify-center shrink-0 text-orange group-hover:bg-orange group-hover:text-white group-hover:scale-105 transition-all duration-200">
+                                <IconComp className="w-5 h-5" />
                               </div>
-                              <div className="text-xs text-slate-400 line-clamp-1">
-                                {srv.desc}
+                              <div className="flex-grow min-w-0">
+                                <div className="text-sm font-semibold text-white group-hover:text-orange transition-colors truncate">
+                                  {srv.title}
+                                </div>
+                                <div className="text-xs text-slate-400 line-clamp-1">
+                                  {srv.desc}
+                                </div>
                               </div>
-                            </div>
-                          </Link>
-                        ))}
+                            </Link>
+                          );
+                        })}
                       </div>
 
                       <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between bg-white/5 rounded-xl p-3">
@@ -402,24 +399,23 @@ export default function Navbar() {
 
                 {mobileServicesOpen && (
                   <div className="px-3 pb-3 pt-1 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-black/25">
-                    {servicesList.map((srv) => (
-                      <Link
-                        key={srv.slug}
-                        href={`/${srv.slug}`}
-                        className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-white/10 text-slate-200 text-xs transition"
-                      >
-                        <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-white/10">
-                          <Image
-                            src={srv.image}
-                            alt={srv.title}
-                            fill
-                            className="object-cover"
-                            sizes="32px"
-                          />
-                        </div>
-                        <span className="font-medium truncate text-xs">{srv.title}</span>
-                      </Link>
-                    ))}
+                    {servicesList.map((srv) => {
+                      const IconComp = srv.icon;
+                      return (
+                        <Link
+                          key={srv.slug}
+                          href={`/${srv.slug}`}
+                          className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-white/10 text-slate-200 text-xs transition group"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-orange/15 border border-orange/20 flex items-center justify-center shrink-0 text-orange group-hover:bg-orange group-hover:text-white transition-colors">
+                            <IconComp className="w-4 h-4" />
+                          </div>
+                          <span className="font-medium truncate text-xs group-hover:text-white transition-colors">
+                            {srv.title}
+                          </span>
+                        </Link>
+                      );
+                    })}
                     <Link
                       href="/service"
                       className="col-span-full text-center text-xs font-bold text-orange py-2 hover:underline"

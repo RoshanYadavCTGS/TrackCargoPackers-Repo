@@ -2,29 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { servicesData } from "@/data/services";
 import {
-  PackageCheck,
-  Truck,
-  Home,
-  Building2,
-  Car,
-  Bike,
-  Globe,
-  Warehouse,
   ArrowRight,
   ShieldCheck,
   Check,
 } from "lucide-react";
-
-const iconMap: Record<string, any> = {
-  PackageCheck,
-  Truck,
-  Home,
-  Building2,
-  Car,
-  Bike,
-  Globe,
-  Warehouse,
-};
 
 export default function ServicesGrid() {
   return (
@@ -46,14 +27,13 @@ export default function ServicesGrid() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicesData.map((service) => {
-            const Icon = iconMap[service.icon] || PackageCheck;
             return (
               <div
                 key={service.id}
                 className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-soft hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group"
               >
-                {/* Image Header with Badge */}
-                <div className="relative h-44 w-full overflow-hidden bg-slate-100">
+                {/* Image Header */}
+                <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-slate-100">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -61,17 +41,6 @@ export default function ServicesGrid() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent" />
-                  
-                  <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md text-orange flex items-center justify-center shadow-md">
-                    <Icon className="w-5 h-5" />
-                  </div>
-
-                  <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <span className="text-[11px] font-semibold bg-orange/90 px-2 py-0.5 rounded-full inline-block backdrop-blur-sm">
-                      {service.pricingRange}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Body Content */}
