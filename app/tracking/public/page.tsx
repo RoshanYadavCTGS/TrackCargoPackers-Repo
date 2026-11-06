@@ -167,7 +167,7 @@ export default function TrackingPage() {
         {/* Search Bar Form */}
         <form onSubmit={handleSearch} className="mb-10">
           <div className="bg-white p-2 rounded-2xl shadow-soft border border-slate-200 flex items-center gap-2">
-            <div className="pl-4 text-slate-400">
+            <div className="pl-3 sm:pl-4 text-slate-400 shrink-0">
               <Compass className="w-5 h-5" />
             </div>
             <input
@@ -175,11 +175,11 @@ export default function TrackingPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Enter LR / Consignment No. (e.g. TC-84920)"
-              className="flex-grow py-3 px-2 text-sm sm:text-base font-semibold text-navy placeholder-slate-400 focus:outline-none"
+              className="flex-grow min-w-0 py-2.5 sm:py-3 px-2 text-xs sm:text-base font-semibold text-navy placeholder-slate-400 focus:outline-none"
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange to-amber text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition cursor-pointer flex items-center gap-1.5"
+              className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-orange to-amber text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition cursor-pointer flex items-center gap-1.5 shrink-0"
             >
               <Search className="w-4 h-4" />
               <span>Track</span>
@@ -278,16 +278,16 @@ export default function TrackingPage() {
             </div>
 
             {/* Support Actions Footer */}
-            <div className="p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-2 text-xs text-slate-600">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <div className="p-4 sm:p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-xs text-slate-600 text-center sm:text-left">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>100% Insured Consignment • Verified Container Seal</span>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
                 <a
                   href={`tel:${companyData.phones.primary}`}
-                  className="px-4 py-2 rounded-xl bg-navy text-white text-xs font-bold transition flex items-center gap-1.5"
+                  className="px-4 py-2.5 rounded-xl bg-navy text-white text-xs font-bold transition flex items-center justify-center gap-1.5"
                 >
                   <Phone className="w-3.5 h-3.5 text-orange" />
                   <span>Call Dispatch Desk</span>
@@ -297,7 +297,7 @@ export default function TrackingPage() {
                   href={companyData.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center gap-1.5"
+                  className="px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center justify-center gap-1.5"
                 >
                   <MessageCircle className="w-3.5 h-3.5 fill-current" />
                   <span>WhatsApp Help</span>

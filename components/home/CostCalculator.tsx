@@ -39,10 +39,10 @@ export default function CostCalculator() {
           </div>
 
           {/* Tab selector */}
-          <div className="mt-6 lg:mt-0 flex items-center bg-slate-100 p-1.5 rounded-2xl w-fit">
+          <div className="mt-6 lg:mt-0 flex items-center bg-slate-100 p-1.5 rounded-2xl w-full sm:w-fit overflow-x-auto max-w-full">
             <button
               onClick={() => setActiveTab("calculator")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                 activeTab === "calculator"
                   ? "bg-navy text-white shadow-md"
                   : "text-slate-600 hover:text-navy"
@@ -52,7 +52,7 @@ export default function CostCalculator() {
             </button>
             <button
               onClick={() => setActiveTab("domestic")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                 activeTab === "domestic"
                   ? "bg-navy text-white shadow-md"
                   : "text-slate-600 hover:text-navy"
@@ -62,7 +62,7 @@ export default function CostCalculator() {
             </button>
             <button
               onClick={() => setActiveTab("vehicle")}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                 activeTab === "vehicle"
                   ? "bg-navy text-white shadow-md"
                   : "text-slate-600 hover:text-navy"

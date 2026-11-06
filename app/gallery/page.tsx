@@ -170,27 +170,27 @@ export default function GalleryPage() {
           {/* Prev button */}
           <button
             onClick={prevPhoto}
-            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer z-50"
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer z-50"
             aria-label="Previous photo"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Next button */}
           <button
             onClick={nextPhoto}
-            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer z-50"
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 sm:p-3 rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer z-50"
             aria-label="Next photo"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Modal Content */}
           <div
-            className="max-w-4xl w-full bg-navy-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative"
+            className="max-w-4xl w-full bg-navy-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative my-auto max-h-[calc(100vh-2rem)] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-[420px] sm:h-[550px] w-full bg-black">
+            <div className="relative h-[45vh] sm:h-[55vh] md:h-[500px] w-full bg-black shrink-0">
               <Image
                 src={currentPhoto.image}
                 alt={currentPhoto.title}
@@ -201,7 +201,7 @@ export default function GalleryPage() {
               />
             </div>
 
-            <div className="p-6 bg-navy-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10">
+            <div className="p-4 sm:p-6 bg-navy-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10 overflow-y-auto">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-xs font-bold text-orange uppercase tracking-wider">

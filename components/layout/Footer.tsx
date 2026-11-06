@@ -203,14 +203,14 @@ export default function Footer() {
 
         {/* Bottom Bar: Copyright & Compliance */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div>
+          <div className="text-center sm:text-left">
             © {new Date().getFullYear()} {companyData.name}. All Rights Reserved. Reg. Logistics Provider.
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-3 gap-y-1 text-center sm:text-right">
             <span className="text-slate-400">Chennai Central Dispatch Hub</span>
-            <span>•</span>
+            <span className="hidden sm:inline text-slate-600">•</span>
             <span className="text-slate-400">Zero Surge Guarantee</span>
-            <span>•</span>
+            <span className="hidden sm:inline text-slate-600">•</span>
             <span className="text-slate-400">All-India Container Network</span>
           </div>
         </div>

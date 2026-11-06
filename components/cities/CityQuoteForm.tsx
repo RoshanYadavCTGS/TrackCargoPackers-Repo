@@ -45,7 +45,7 @@ export default function CityQuoteForm({
   };
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-soft sticky top-24">
+    <div className="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-soft">
       {/* Red/Orange Header Tab matching user's screenshot */}
       <div className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-orange to-amber text-white font-heading font-extrabold text-center text-sm uppercase tracking-wider shadow-glow-orange mb-6">
         Request A Free Quote
@@ -145,7 +145,7 @@ export default function CityQuoteForm({
           </div>
 
           {/* Moving From & To */}
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <div>
               <label className="block text-[11px] font-semibold text-slate-600 mb-1">
                 Moving From *

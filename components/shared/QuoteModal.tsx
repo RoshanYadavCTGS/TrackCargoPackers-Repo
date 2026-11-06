@@ -70,36 +70,38 @@ export default function QuoteModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-900/80 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-navy-900/80 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200"
+        className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-200 my-auto max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100vh-2rem)] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-navy px-6 py-4 text-white flex items-center justify-between border-b border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="bg-white px-2.5 py-1 rounded-lg">
+        <div className="bg-navy px-4 sm:px-6 py-3.5 sm:py-4 text-white flex items-center justify-between border-b border-white/10 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <div className="bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg shrink-0">
               <Image
                 src="/heder-logo.png"
                 alt="Track Cargo Packers & Movers"
                 width={130}
                 height={40}
-                className="h-7 w-auto object-contain"
+                className="h-6 sm:h-7 w-auto object-contain"
               />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-orange animate-pulse"></span>
-                <span className="text-[11px] uppercase tracking-wider font-semibold text-orange">
+                <span className="w-2 h-2 rounded-full bg-orange animate-pulse shrink-0"></span>
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold text-orange truncate">
                   Instant Moving Estimate
                 </span>
               </div>
-              <h3 className="text-base sm:text-lg font-bold font-heading">Guaranteed Quotation</h3>
+              <h3 className="text-sm sm:text-base md:text-lg font-bold font-heading truncate">
+                Guaranteed Quotation
+              </h3>
             </div>
           </div>
           <button
             onClick={handleClose}
-            className="p-2 text-slate-300 hover:text-white rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-1.5 sm:p-2 text-slate-300 hover:text-white rounded-full hover:bg-white/10 transition-colors cursor-pointer shrink-0 ml-2"
             aria-label="Close quote modal"
           >
             <X className="w-5 h-5" />
@@ -107,7 +109,7 @@ export default function QuoteModal({
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6 overflow-y-auto flex-grow">
           {isSubmitted ? (
             <div className="text-center py-8 space-y-4">
               <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto ring-8 ring-emerald-50/50">

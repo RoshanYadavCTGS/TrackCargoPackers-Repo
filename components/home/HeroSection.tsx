@@ -125,17 +125,17 @@ export default function HeroSection() {
             </div>
 
             {/* Ratings & Social Proof bar */}
-            <div className="pt-4 flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400">
-              <div className="flex items-center gap-1 text-amber-400">
+            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-4 text-xs text-slate-400">
+              <div className="flex items-center gap-1 text-amber-400 shrink-0">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span className="text-slate-300 font-semibold text-sm">
+              <span className="text-slate-300 font-semibold text-sm shrink-0">
                 4.8 / 5.0
               </span>
-              <span>•</span>
-              <span>Based on 1,200+ verified customer reviews</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="text-center sm:text-left">Based on 1,200+ verified customer reviews</span>
             </div>
           </div>
 

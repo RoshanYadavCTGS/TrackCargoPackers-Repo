@@ -86,6 +86,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const pathname = usePathname();
 
@@ -97,16 +98,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock background body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "glass-nav py-1.5 sm:py-2 shadow-lg shadow-navy-900/10"
             : "bg-navy/95 backdrop-blur-md py-2 sm:py-2.5 border-b border-white/10"
@@ -123,7 +137,7 @@ export default function Navbar() {
                   width={240}
                   height={60}
                   priority
-                  className="h-9 sm:h-11 md:h-12 lg:h-13 w-auto object-contain"
+                  className="h-9 sm:h-10 md:h-11 lg:h-11 xl:h-12 w-auto object-contain"
                 />
               </div>
             </Link>
@@ -327,141 +341,178 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+      </header>
 
-        {/* Mobile Slide-in Drawer */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[60px] bottom-0 bg-navy-900/98 backdrop-blur-2xl border-t border-white/10 overflow-y-auto px-4 py-6 flex flex-col justify-between animate-in slide-in-from-top-4 duration-200">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <div className="bg-white px-1.5 py-0.5 rounded-lg shadow-sm">
-                  <Image
-                    src="/heder-logo.png"
-                    alt="Track Cargo Packers & Movers"
-                    width={150}
-                    height={45}
-                    className="h-9 w-auto object-contain"
-                  />
-                </div>
-                <span className="text-xs text-slate-400 font-medium">Chennai • Pan-India</span>
-              </div>
+      {/* Mobile Fullscreen Navigation Drawer (Mounted outside <header> to prevent backdrop-filter stacking context bugs) */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 top-[52px] sm:top-[60px] z-40 bg-[#07122A] flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
+          <div className="p-4 sm:p-6 space-y-3">
+            {/* Direct Navigation Links */}
+            <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation Links">
+              <Link
+                href="/"
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition ${
+                  pathname === "/"
+                    ? "bg-gradient-to-r from-orange to-amber text-white shadow-glow-orange"
+                    : "bg-white/5 text-slate-100 hover:bg-white/10"
+                }`}
+              >
+                <span>Home</span>
+                <ArrowRight className="w-4 h-4 opacity-75" />
+              </Link>
 
-              <div className="grid grid-cols-2 gap-2">
-                <Link
-                  href="/"
-                  className="p-2.5 rounded-xl bg-white/5 text-white font-semibold text-sm hover:bg-white/10"
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/about-us"
-                  className="p-2.5 rounded-xl bg-white/5 text-white font-semibold text-sm hover:bg-white/10"
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/service"
-                  className="p-2.5 rounded-xl bg-white/5 text-white font-semibold text-sm hover:bg-white/10"
-                >
-                  Services
-                </Link>
-                <Link
-                  href="/branches"
-                  className="p-2.5 rounded-xl bg-white/5 text-white font-semibold text-sm hover:bg-white/10"
-                >
-                  Branches
-                </Link>
-                <Link
-                  href="/gallery"
-                  className="p-2.5 rounded-xl bg-white/5 text-white font-semibold text-sm hover:bg-white/10"
-                >
-                  Gallery
-                </Link>
-                <Link
-                  href="/enquiry"
-                  className="p-2.5 rounded-xl bg-white/5 text-white font-semibold text-sm hover:bg-white/10"
-                >
-                  Enquiry
-                </Link>
-                <Link
-                  href="/contact-us"
-                  className="col-span-2 p-2.5 rounded-xl bg-white/5 text-white font-semibold text-sm hover:bg-white/10 text-center"
-                >
-                  Contact Us
-                </Link>
-              </div>
+              <Link
+                href="/about-us"
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition ${
+                  pathname === "/about-us" || pathname.startsWith("/about")
+                    ? "bg-gradient-to-r from-orange to-amber text-white shadow-glow-orange"
+                    : "bg-white/5 text-slate-100 hover:bg-white/10"
+                }`}
+              >
+                <span>About Us</span>
+                <ArrowRight className="w-4 h-4 opacity-75" />
+              </Link>
 
-              {/* Services quick links on mobile */}
-              <div className="pt-2">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                    Our Relocation Services
-                  </span>
+              {/* Services Accordion Item */}
+              <div className="rounded-2xl bg-white/5 overflow-hidden border border-white/5">
+                <div className="flex items-center justify-between px-4 py-3">
                   <Link
                     href="/service"
-                    className="text-xs text-orange font-bold hover:underline"
+                    className={`font-bold text-sm transition flex-grow ${
+                      pathname === "/service" || pathname.startsWith("/service")
+                        ? "text-orange"
+                        : "text-slate-100"
+                    }`}
                   >
-                    View All →
+                    Services
                   </Link>
+                  <button
+                    type="button"
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="p-1.5 text-slate-400 hover:text-white rounded-lg bg-white/5 cursor-pointer"
+                    aria-label="Toggle all relocation services"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        mobileServicesOpen ? "rotate-180 text-orange" : ""
+                      }`}
+                    />
+                  </button>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {servicesList.map((srv) => (
+
+                {mobileServicesOpen && (
+                  <div className="px-3 pb-3 pt-1 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-1.5 bg-black/25">
+                    {servicesList.map((srv) => (
+                      <Link
+                        key={srv.slug}
+                        href={`/${srv.slug}`}
+                        className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-white/10 text-slate-200 text-xs transition"
+                      >
+                        <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-white/10">
+                          <Image
+                            src={srv.image}
+                            alt={srv.title}
+                            fill
+                            className="object-cover"
+                            sizes="32px"
+                          />
+                        </div>
+                        <span className="font-medium truncate text-xs">{srv.title}</span>
+                      </Link>
+                    ))}
                     <Link
-                      key={srv.slug}
-                      href={`/${srv.slug}`}
-                      className="p-2 rounded-xl bg-white/5 text-slate-200 text-xs flex items-center gap-2 hover:bg-white/10 transition"
+                      href="/service"
+                      className="col-span-full text-center text-xs font-bold text-orange py-2 hover:underline"
                     >
-                      <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-white/10">
-                        <Image
-                          src={srv.image}
-                          alt={srv.title}
-                          fill
-                          className="object-cover"
-                          sizes="32px"
-                        />
-                      </div>
-                      <span className="font-medium text-[11px] truncate leading-tight">
-                        {srv.title}
-                      </span>
+                      View All Services Overview →
                     </Link>
-                  ))}
-                </div>
+                  </div>
+                )}
               </div>
-            </div>
 
-            {/* Bottom Actions in Drawer */}
-            <div className="pt-6 border-t border-white/10 space-y-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setIsQuoteOpen(true);
-                }}
-                className="w-full py-3 bg-gradient-to-r from-orange to-amber text-white font-bold text-sm uppercase rounded-full shadow-glow-orange flex items-center justify-center gap-2"
+              <Link
+                href="/branches"
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition ${
+                  pathname === "/branches"
+                    ? "bg-gradient-to-r from-orange to-amber text-white shadow-glow-orange"
+                    : "bg-white/5 text-slate-100 hover:bg-white/10"
+                }`}
               >
-                <span>Get Instant Free Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                <span>Branches</span>
+                <ArrowRight className="w-4 h-4 opacity-75" />
+              </Link>
 
-              <div className="grid grid-cols-2 gap-2">
-                <a
-                  href={`tel:${companyData.phones.primary}`}
-                  className="py-2.5 px-3 bg-white/10 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5"
-                >
-                  <Phone className="w-3.5 h-3.5 text-orange" />
-                  <span>Call Direct</span>
-                </a>
-                <a
-                  href={companyData.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-2.5 px-3 bg-emerald-600/90 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5"
-                >
-                  <span>WhatsApp</span>
-                </a>
-              </div>
+              <Link
+                href="/gallery"
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition ${
+                  pathname === "/gallery"
+                    ? "bg-gradient-to-r from-orange to-amber text-white shadow-glow-orange"
+                    : "bg-white/5 text-slate-100 hover:bg-white/10"
+                }`}
+              >
+                <span>Gallery</span>
+                <ArrowRight className="w-4 h-4 opacity-75" />
+              </Link>
+
+              <Link
+                href="/enquiry"
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition ${
+                  pathname === "/enquiry"
+                    ? "bg-gradient-to-r from-orange to-amber text-white shadow-glow-orange"
+                    : "bg-white/5 text-slate-100 hover:bg-white/10"
+                }`}
+              >
+                <span>Enquiry</span>
+                <ArrowRight className="w-4 h-4 opacity-75" />
+              </Link>
+
+              <Link
+                href="/contact-us"
+                className={`flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition ${
+                  pathname === "/contact-us" || pathname === "/contact"
+                    ? "bg-gradient-to-r from-orange to-amber text-white shadow-glow-orange"
+                    : "bg-white/5 text-slate-100 hover:bg-white/10"
+                }`}
+              >
+                <span>Contact Us</span>
+                <ArrowRight className="w-4 h-4 opacity-75" />
+              </Link>
+            </nav>
+          </div>
+
+          {/* Bottom Actions Cluster */}
+          <div className="p-4 sm:p-6 bg-navy-900 border-t border-white/10 space-y-3 shrink-0 pb-16 sm:pb-8">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsQuoteOpen(true);
+              }}
+              className="w-full py-3.5 px-4 bg-gradient-to-r from-orange to-amber hover:from-orange-hover hover:to-orange text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-glow-orange flex items-center justify-center gap-2 cursor-pointer transition active:scale-98"
+            >
+              <span>Get Free Quote</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              <a
+                href={`tel:${companyData.phones.primary}`}
+                className="py-3 px-3 bg-white/10 hover:bg-white/15 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition active:scale-98"
+              >
+                <Phone className="w-3.5 h-3.5 text-orange" />
+                <span>Call Direct</span>
+              </a>
+              <a
+                href={companyData.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 px-3 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition active:scale-98"
+              >
+                <span>WhatsApp</span>
+              </a>
             </div>
           </div>
-        )}
-      </header>
+        </div>
+      )}
 
       {/* Quote Modal */}
       <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
