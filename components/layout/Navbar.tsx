@@ -19,6 +19,7 @@ import {
   Warehouse,
   ArrowRight,
   ShieldCheck,
+  Target,
 } from "lucide-react";
 import { companyData } from "@/data/company";
 import QuoteModal from "@/components/shared/QuoteModal";
@@ -86,8 +87,10 @@ const servicesList = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const pathname = usePathname();
 
@@ -115,7 +118,9 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
+    setAboutOpen(false);
     setMobileServicesOpen(false);
+    setMobileAboutOpen(false);
   }, [pathname]);
 
   return (
@@ -156,16 +161,44 @@ export default function Navbar() {
                 Home
               </Link>
 
-              <Link
-                href="/about-us"
-                className={`inline-flex items-center justify-center px-2.5 xl:px-3.5 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold whitespace-nowrap rounded-xl transition-all duration-150 ${
-                  pathname === "/about-us" || pathname.startsWith("/about")
-                    ? "text-orange bg-white/10 font-bold shadow-xs"
-                    : "text-slate-200 hover:text-white hover:bg-white/8"
-                }`}
+              {/* About Us Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setAboutOpen(true)}
+                onMouseLeave={() => setAboutOpen(false)}
               >
-                About Us
-              </Link>
+                <Link
+                  href="/about-us"
+                  className={`inline-flex items-center justify-center px-2.5 xl:px-3.5 py-1.5 xl:py-2 text-xs xl:text-sm font-semibold whitespace-nowrap rounded-xl transition-all duration-150 ${
+                    pathname === "/about-us" || pathname.startsWith("/about") || pathname.startsWith("/mission")
+                      ? "text-orange bg-white/10 font-bold shadow-xs"
+                      : "text-slate-200 hover:text-white hover:bg-white/8"
+                  }`}
+                  aria-expanded={aboutOpen}
+                >
+                  <span>About Us</span>
+                </Link>
+
+                {aboutOpen && (
+                  <div className="absolute top-full left-0 w-52 pt-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                    <div className="bg-navy-900/98 rounded-2xl p-2 border border-white/10 shadow-2xl backdrop-blur-2xl">
+                      <Link
+                        href="/about/mission-and-vision"
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition group ${
+                          pathname.startsWith("/about/mission") || pathname.startsWith("/mission")
+                            ? "bg-white/10 text-orange"
+                            : "hover:bg-white/10 text-slate-200 hover:text-white"
+                        }`}
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-orange/15 border border-orange/25 flex items-center justify-center shrink-0 text-orange group-hover:bg-orange group-hover:text-white transition-all duration-200">
+                          <Target className="w-4 h-4" />
+                        </div>
+                        <span className="text-sm font-semibold">Mission &amp; Vision</span>
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* Services Mega-menu */}
               <div
@@ -359,17 +392,47 @@ export default function Navbar() {
                 <ArrowRight className="w-4 h-4 opacity-75" />
               </Link>
 
-              <Link
-                href="/about-us"
-                className={`flex items-center justify-between px-4 py-3 rounded-2xl font-bold text-sm transition ${
-                  pathname === "/about-us" || pathname.startsWith("/about")
-                    ? "bg-gradient-to-r from-orange to-amber text-white shadow-glow-orange"
-                    : "bg-white/5 text-slate-100 hover:bg-white/10"
-                }`}
-              >
-                <span>About Us</span>
-                <ArrowRight className="w-4 h-4 opacity-75" />
-              </Link>
+              {/* About Us Accordion Item */}
+              <div className="rounded-2xl bg-white/5 overflow-hidden border border-white/5">
+                <div className="flex items-center justify-between px-4 py-3">
+                  <Link
+                    href="/about-us"
+                    className={`font-bold text-sm transition flex-grow ${
+                      pathname === "/about-us" || pathname.startsWith("/about") || pathname.startsWith("/mission")
+                        ? "text-orange"
+                        : "text-slate-100"
+                    }`}
+                  >
+                    About Us
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                    className="p-1.5 text-slate-400 hover:text-white rounded-lg bg-white/5 cursor-pointer"
+                    aria-label="Toggle about pages"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        mobileAboutOpen ? "rotate-180 text-orange" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+
+                {mobileAboutOpen && (
+                  <div className="px-3 pb-3 pt-1 border-t border-white/10 flex flex-col gap-1.5 bg-black/25">
+                    <Link
+                      href="/about/mission-and-vision"
+                      className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-white/10 text-slate-200 text-xs transition group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-orange/15 border border-orange/20 flex items-center justify-center shrink-0 text-orange group-hover:bg-orange group-hover:text-white transition-colors">
+                        <Target className="w-4 h-4" />
+                      </div>
+                      <span className="font-medium text-xs group-hover:text-white transition-colors">Mission &amp; Vision</span>
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               {/* Services Accordion Item */}
               <div className="rounded-2xl bg-white/5 overflow-hidden border border-white/5">
