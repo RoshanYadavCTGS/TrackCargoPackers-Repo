@@ -72,17 +72,17 @@ export default async function ServiceDetailPage({ params }: Props) {
                 </span>
               </div>
 
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                 <Link
                   href="/contact-us"
-                  className="px-6 py-3 rounded-xl bg-orange hover:bg-orange-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-glow-orange flex items-center gap-2"
+                  className="px-6 py-3 rounded-xl bg-orange hover:bg-orange-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-glow-orange flex items-center justify-center gap-2"
                 >
                   <span>Book This Service</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
                   href={`tel:${companyData.phones.primary}`}
-                  className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-semibold border border-white/20 transition flex items-center gap-2"
+                  className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-semibold border border-white/20 transition flex items-center justify-center gap-2"
                 >
                   <Phone className="w-4 h-4 text-orange" />
                   <span>Call {companyData.phones.primaryFormatted}</span>
@@ -90,7 +90,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative h-72 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border border-white/15">
+            <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-auto sm:h-80 lg:h-96 w-full rounded-3xl overflow-hidden shadow-2xl border border-white/15">
               <Image
                 src={service.image}
                 alt={service.title}

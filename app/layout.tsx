@@ -85,7 +85,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-white text-slate-900 selection:bg-orange selection:text-white">
         <SmoothScrollProvider>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen overflow-x-hidden">
             <Navbar />
             <main className="flex-grow pt-[72px] lg:pt-[80px]">
               {children}

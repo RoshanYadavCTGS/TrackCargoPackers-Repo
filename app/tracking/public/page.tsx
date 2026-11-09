@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { companyData } from "@/data/company";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 import {
   Compass,
   Search,
@@ -11,7 +12,6 @@ import {
   MapPin,
   ShieldCheck,
   Phone,
-  MessageCircle,
   AlertCircle,
 } from "lucide-react";
 
@@ -223,7 +223,7 @@ export default function TrackingPage() {
             </div>
 
             {/* Current GPS location banner */}
-            <div className="p-4 bg-emerald-50 border-b border-emerald-100 flex items-center justify-between px-6 sm:px-8 text-xs">
+            <div className="p-4 bg-emerald-50 border-b border-emerald-100 flex flex-wrap items-center justify-between gap-2 px-4 sm:px-8 text-xs">
               <div className="flex items-center gap-2 text-emerald-800 font-semibold">
                 <MapPin className="w-4 h-4 text-emerald-600" />
                 <span>Last Reported GPS: {searchedRecord.currentLocation}</span>
@@ -297,9 +297,9 @@ export default function TrackingPage() {
                   href={companyData.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center justify-center gap-1.5"
+                  className="px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                  <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
                   <span>WhatsApp Help</span>
                 </a>
               </div>

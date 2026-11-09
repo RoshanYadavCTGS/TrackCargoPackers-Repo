@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { companyData } from "@/data/company";
 import QuoteModal from "@/components/shared/QuoteModal";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 const servicesList = [
   {
@@ -190,7 +191,7 @@ export default function Navbar() {
                 </Link>
 
                 {servicesOpen && (
-                  <div className="absolute top-full -left-28 xl:-left-40 w-[640px] pt-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="absolute top-full -left-16 xl:-left-36 w-[580px] xl:w-[640px] max-w-[calc(100vw-2rem)] pt-2 animate-in fade-in slide-in-from-top-2 duration-150">
                     <div className="bg-navy-900/98 rounded-2xl p-5 border border-white/10 shadow-2xl backdrop-blur-2xl">
                       <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
                         <span className="text-xs font-semibold text-orange uppercase tracking-wider">
@@ -342,7 +343,7 @@ export default function Navbar() {
 
       {/* Mobile Fullscreen Navigation Drawer (Mounted outside <header> to prevent backdrop-filter stacking context bugs) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[52px] sm:top-[60px] z-40 bg-[#07122A] flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
+        <div className="lg:hidden fixed inset-0 top-[56px] sm:top-[64px] pb-24 z-40 bg-[#07122A] flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200">
           <div className="p-4 sm:p-6 space-y-3">
             {/* Direct Navigation Links */}
             <nav className="flex flex-col space-y-2" aria-label="Mobile Navigation Links">
@@ -501,8 +502,9 @@ export default function Navbar() {
                 href={companyData.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3 px-3 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition active:scale-98"
+                className="py-3 px-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-1.5 transition active:scale-98"
               >
+                <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
                 <span>WhatsApp</span>
               </a>
             </div>

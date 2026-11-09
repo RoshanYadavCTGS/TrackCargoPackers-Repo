@@ -118,10 +118,10 @@ export default function CostCalculator() {
                     onChange={(e) => setCalcDistance(Number(e.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-orange"
                   />
-                  <div className="flex justify-between text-[11px] text-slate-400 mt-1">
+                  <div className="flex justify-between text-[10px] sm:text-[11px] text-slate-400 mt-1">
                     <span>Local (10-50 km)</span>
-                    <span>Bangalore (350 km)</span>
-                    <span>Hyderabad (650 km)</span>
+                    <span className="hidden sm:inline">Bangalore (350 km)</span>
+                    <span className="hidden md:inline">Hyderabad (650 km)</span>
                     <span>Delhi (2200 km)</span>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export default function CostCalculator() {
                         key={item.id}
                         type="button"
                         onClick={() => setCalcVehicle(item.id as any)}
-                        className={`p-2.5 rounded-xl text-xs font-bold border transition text-center cursor-pointer ${
+                        className={`p-2 sm:p-2.5 rounded-xl text-[11px] sm:text-xs font-bold border transition text-center cursor-pointer ${
                           calcVehicle === item.id
                             ? "bg-navy text-white border-navy"
                             : "bg-white text-slate-700 border-slate-200 hover:border-slate-300"

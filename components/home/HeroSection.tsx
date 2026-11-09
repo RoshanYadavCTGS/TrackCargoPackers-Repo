@@ -19,6 +19,7 @@ import {
   MapPin,
 } from "lucide-react";
 import confetti from "canvas-confetti";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 export default function HeroSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -119,6 +120,7 @@ export default function HeroSection() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-base border border-white/20 transition-all flex items-center justify-center gap-2"
               >
+                <WhatsAppIcon className="w-5 h-5 fill-[#25D366]" />
                 <span>WhatsApp Instant Estimate</span>
                 <ArrowRight className="w-4 h-4 text-emerald-400" />
               </a>

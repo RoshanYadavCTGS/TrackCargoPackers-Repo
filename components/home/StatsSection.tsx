@@ -35,11 +35,11 @@ export default function StatsSection() {
 
   return (
     <section className="relative z-20 -mt-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-100 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      <div className="bg-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-slate-100 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
         {stats.map((item, idx) => {
           const Icon = item.icon;
           return (
-            <div key={idx} className="flex flex-col items-center text-center p-3">
+            <div key={idx} className="flex flex-col items-center text-center p-2 sm:p-3">
               <div
                 className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${item.color} flex items-center justify-center text-white mb-3 shadow-md`}
               >

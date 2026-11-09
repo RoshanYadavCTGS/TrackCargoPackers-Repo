@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, MessageCircle, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { Phone, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { companyData } from "@/data/company";
 import QuoteModal from "@/components/shared/QuoteModal";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 export default function CtaBanner() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -60,9 +61,9 @@ export default function CtaBanner() {
               href={companyData.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-sm transition flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
+              <WhatsAppIcon className="w-4 h-4 fill-white" />
               <span>WhatsApp</span>
             </a>
           </div>

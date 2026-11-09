@@ -83,7 +83,7 @@ export default function GalleryPage() {
                     setActiveCategory(cat.id);
                     setSelectedPhotoIndex(null);
                   }}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer flex items-center gap-1.5 ${
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-bold transition cursor-pointer flex items-center gap-1.5 ${
                     activeCategory === cat.id
                       ? "bg-navy text-white shadow-md"
                       : "bg-white text-slate-700 border border-slate-200 hover:border-slate-300"
@@ -122,10 +122,6 @@ export default function GalleryPage() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                <div className="absolute top-3 left-3 bg-navy-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-                  {item.category}
-                </div>
 
                 <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <Maximize2 className="w-4 h-4" />
@@ -187,7 +183,7 @@ export default function GalleryPage() {
 
           {/* Modal Content */}
           <div
-            className="max-w-4xl w-full bg-navy-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative my-auto max-h-[calc(100vh-2rem)] flex flex-col"
+            className="max-w-4xl w-full bg-navy-900 rounded-2xl sm:rounded-3xl overflow-y-auto border border-white/10 shadow-2xl relative my-auto max-h-[calc(100vh-2rem)] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative h-[45vh] sm:h-[55vh] md:h-[500px] w-full bg-black shrink-0">

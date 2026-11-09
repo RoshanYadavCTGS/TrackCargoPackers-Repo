@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2, Phone, MessageCircle } from "lucide-react";
+import { Send, CheckCircle2, Phone } from "lucide-react";
 import confetti from "canvas-confetti";
 import { companyData } from "@/data/company";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 interface CityQuoteFormProps {
   defaultFrom?: string;
@@ -240,9 +241,9 @@ export default function CityQuoteForm({
           href={companyData.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-emerald-600 font-bold hover:text-emerald-700 transition"
+          className="flex items-center gap-1.5 text-[#25D366] hover:text-[#20ba59] font-bold transition"
         >
-          <MessageCircle className="w-3.5 h-3.5 fill-current" />
+          <WhatsAppIcon className="w-4 h-4 fill-[#25D366]" />
           <span>WhatsApp</span>
         </a>
       </div>

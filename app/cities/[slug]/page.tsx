@@ -17,7 +17,6 @@ import {
   Clock,
   Layers,
   HelpCircle,
-  MessageCircle,
   Building2,
   Calendar,
   Sparkles,

@@ -13,6 +13,7 @@ import {
 import { companyData } from "@/data/company";
 import { servicesData } from "@/data/services";
 import { citiesData } from "@/data/cities";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 export default function Footer() {
   return (
@@ -191,8 +192,9 @@ export default function Footer() {
                   href={companyData.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full text-xs font-semibold transition shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full text-xs font-semibold transition shadow-sm"
                 >
+                  <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
                   <span>Chat on WhatsApp (Instant)</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>

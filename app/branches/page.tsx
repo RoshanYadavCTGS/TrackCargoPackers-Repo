@@ -14,11 +14,11 @@ import {
   ShieldCheck,
   ArrowRight,
   Search,
-  MessageCircle,
   Navigation,
 } from "lucide-react";
 import Link from "next/link";
 import QuoteModal from "@/components/shared/QuoteModal";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 export default function BranchesPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -163,9 +163,9 @@ export default function BranchesPage() {
                     setSelectedBranch(branch.city);
                     setIsQuoteOpen(true);
                   }}
-                  className="flex-grow py-2.5 px-3 rounded-xl bg-gradient-to-r from-orange to-amber hover:from-orange-hover hover:to-orange text-white text-xs font-bold uppercase tracking-wider shadow-glow-orange hover:shadow-lg transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="flex-grow py-2.5 px-2.5 sm:px-3 rounded-xl bg-gradient-to-r from-orange to-amber hover:from-orange-hover hover:to-orange text-white text-xs font-bold uppercase tracking-wider shadow-glow-orange hover:shadow-lg transition flex items-center justify-center gap-1.5 cursor-pointer min-w-0"
                 >
-                  <span>Book from {branch.city}</span>
+                  <span className="truncate">Book from {branch.city}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
 
@@ -175,10 +175,11 @@ export default function BranchesPage() {
                   )}%2C%20I%20need%20moving%20services`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 transition"
+                  className="p-2.5 rounded-xl bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white transition flex items-center justify-center shrink-0 shadow-xs"
                   aria-label={`WhatsApp ${branch.branchName}`}
+                  title={`Chat with ${branch.branchName} on WhatsApp`}
                 >
-                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <WhatsAppIcon className="w-4 h-4 fill-current" />
                 </a>
               </div>
             </div>
@@ -342,9 +343,9 @@ export default function BranchesPage() {
               href={companyData.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
+              <WhatsAppIcon className="w-4 h-4 fill-white" />
               <span>WhatsApp</span>
             </a>
           </div>

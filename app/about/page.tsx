@@ -13,22 +13,87 @@ export default function AboutPage() {
   return (
     <div className="bg-surface">
       {/* Page Header */}
-      <section className="bg-navy text-white py-16 lg:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
-        <div className="absolute -top-24 right-0 w-96 h-96 bg-orange/15 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4 border border-white/10">
-              <Award className="w-3.5 h-3.5 text-orange" />
-              <span>15+ Years Of Relocation Trust</span>
+      <section className="bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="max-w-2xl space-y-2.5">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange/10 text-orange text-xs font-bold uppercase tracking-wider border border-orange/20">
+                <Award className="w-3.5 h-3.5 text-orange" />
+                <span>15+ Years Of Relocation Trust</span>
+              </div>
+              <h1 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-navy tracking-tight leading-tight">
+                Pioneering <span className="text-orange">Stress-Free</span> Moving Across India
+              </h1>
+              <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed">
+                Founded in Chennai with a single truck and a vision to eliminate moving anxieties, Track Cargo has evolved into one of South India&apos;s most reputable logistics networks, relocating over <span className="font-semibold text-navy">165,000 households and businesses</span>.
+              </p>
             </div>
-            <h1 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
-              Pioneering Stress-Free Moving Across India
-            </h1>
-            <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed">
-              Founded in Chennai with a single truck and a vision to eliminate moving anxieties, Track Cargo has evolved into one of South India&apos;s most reputable logistics networks, relocating over 165,000 households and businesses.
-            </p>
+
+            {/* Right-side credibility badges - fits in existing horizontal row on desktop */}
+            <div className="hidden lg:flex items-center gap-3 shrink-0">
+              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl px-4 py-3 text-center shadow-xs">
+                <div className="flex items-center justify-center gap-0.5 text-amber-500 text-xs">
+                  {"★".repeat(5)}
+                </div>
+                <div className="text-lg font-extrabold text-navy font-heading mt-0.5">4.9 / 5.0</div>
+                <div className="text-[11px] text-slate-500 font-medium whitespace-nowrap">4,850+ Google Reviews</div>
+              </div>
+
+              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl px-4 py-3 text-center shadow-xs">
+                <div className="text-[10px] font-bold text-orange uppercase tracking-wider">IBA &amp; ISO 9001</div>
+                <div className="text-base font-extrabold text-navy font-heading mt-0.5 whitespace-nowrap">Certified Movers</div>
+                <div className="text-[10px] text-emerald-600 font-semibold mt-0.5 flex items-center justify-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" /> Govt. Approved
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navbar matching strip with trust pillars - exact navbar height */}
+        <div className="w-full min-h-[72px] lg:h-[80px] py-3 lg:py-0 bg-navy border-t border-navy-800 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 items-center">
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-white text-xs font-bold leading-tight truncate">100% Transit Safe</div>
+                  <div className="text-slate-400 text-[10px] leading-tight hidden sm:block">Zero damage protocol</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-white text-xs font-bold leading-tight truncate">On-Time Delivery</div>
+                  <div className="text-slate-400 text-[10px] leading-tight hidden sm:block">Guaranteed dispatch</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <Truck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-white text-xs font-bold leading-tight truncate">GPS Fleet</div>
+                  <div className="text-slate-400 text-[10px] leading-tight hidden sm:block">Live satellite tracking</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <HeartHandshake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-white text-xs font-bold leading-tight truncate">Zero Hidden Fees</div>
+                  <div className="text-slate-400 text-[10px] leading-tight hidden sm:block">100% transparent quote</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -37,18 +102,20 @@ export default function AboutPage() {
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 relative">
-              <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+            <div className="lg:col-span-6 relative pb-6 sm:pb-0">
+              <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[440px] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop"
-                  alt="Track Cargo Logistics Center"
+                  src="/about1.jpg"
+                  alt="Track Cargo Logistics Fleet"
                   fill
-                  className="object-cover"
+                  priority
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-navy text-white p-6 rounded-3xl shadow-xl border border-white/10 hidden sm:block max-w-xs">
-                <div className="text-3xl font-extrabold text-orange font-heading">165,000+</div>
-                <div className="text-xs text-slate-300 mt-1 font-medium">
+              <div className="absolute -bottom-2 right-2 sm:-bottom-6 sm:right-2 lg:-right-6 bg-navy text-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-xl border border-white/10 max-w-[220px] sm:max-w-xs z-10">
+                <div className="text-2xl sm:text-3xl font-extrabold text-orange font-heading">165,000+</div>
+                <div className="text-[11px] sm:text-xs text-slate-300 mt-1 font-medium leading-snug">
                   Verified relocations executed with zero loss guarantee.
                 </div>
               </div>

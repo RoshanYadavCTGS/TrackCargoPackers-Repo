@@ -94,7 +94,7 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <div className="pt-4 flex items-center gap-4">
+                    <div className="pt-4 flex flex-wrap items-center gap-3 sm:gap-4">
                       <Link
                         href={`/${service.slug}`}
                         className="px-5 py-2.5 rounded-xl bg-navy hover:bg-navy-800 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm"

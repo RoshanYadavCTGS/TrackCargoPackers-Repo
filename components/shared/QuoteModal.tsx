@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { quoteFormSchema, type QuoteFormValues, MoveSizeOptions } from "@/lib/validations";
 import { X, CheckCircle2, ShieldCheck, Truck, Clock } from "lucide-react";
 import confetti from "canvas-confetti";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -142,9 +143,10 @@ export default function QuoteModal({
                   href="https://wa.me/9350895820?text=Hello%20I%20just%20requested%20a%20quote%20on%20your%20website"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-5 py-2.5 bg-emerald-600 text-white rounded-full font-semibold text-sm hover:bg-emerald-700 transition shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full font-semibold text-sm transition shadow-sm"
                 >
-                  Chat on WhatsApp Now
+                  <WhatsAppIcon className="w-4 h-4 fill-white" />
+                  <span>Chat on WhatsApp Now</span>
                 </a>
                 <button
                   onClick={handleClose}

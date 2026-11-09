@@ -10,7 +10,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  MessageCircle,
   CheckCircle2,
   Send,
   ShieldCheck,
@@ -19,6 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import confetti from "canvas-confetti";
+import WhatsAppIcon from "@/components/shared/WhatsAppIcon";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -162,9 +162,9 @@ export default function ContactPage() {
                   href={companyData.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition"
+                  className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md shadow-emerald-500/20"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current" />
+                  <WhatsAppIcon className="w-4 h-4 fill-white" />
                   <span>Instant WhatsApp Chat</span>
                 </a>
               </div>
