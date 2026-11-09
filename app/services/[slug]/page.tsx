@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import ServiceQuoteForm from "@/components/services/ServiceQuoteForm";
 import { servicesData, getServiceBySlug } from "@/data/services";
 import { companyData } from "@/data/company";
 import {
@@ -41,8 +42,6 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (!service) {
     notFound();
   }
-
-  const otherServices = servicesData.filter((s) => s.slug !== service.slug);
 
   return (
     <div className="bg-surface">
@@ -190,50 +189,38 @@ export default async function ServiceDetailPage({ params }: Props) {
 
             {/* Sidebar */}
             <div className="lg:col-span-4 space-y-6">
-              <div className="bg-navy text-white p-6 sm:p-8 rounded-3xl relative overflow-hidden">
-                <div className="text-orange font-bold text-xs uppercase tracking-wider mb-2">
-                  Fast Assistance
-                </div>
-                <h3 className="font-heading font-bold text-xl text-white mb-3">
-                  Need an Immediate Relocation Quote?
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed mb-6">
-                  Talk directly with our senior shift coordinators. Get a binding estimate in 10 minutes.
-                </p>
+              {/* Specialized Service Quote Form (Sticky on desktop) */}
+              <div className="lg:sticky lg:top-24 space-y-6">
+                <ServiceQuoteForm serviceTitle={service.title} serviceSlug={service.slug} />
 
-                <a
-                  href={`tel:${companyData.phones.primary}`}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-orange to-amber text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 shadow-glow-orange"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>Call {companyData.phones.primaryFormatted}</span>
-                </a>
+                {/* Priority Dispatch Call / WhatsApp */}
+                <div className="bg-navy text-white p-6 rounded-3xl relative overflow-hidden shadow-soft">
+                  <div className="text-orange font-bold text-xs uppercase tracking-wider mb-1.5">
+                    Priority Dispatch
+                  </div>
+                  <h3 className="font-heading font-bold text-lg text-white mb-2">
+                    Need Immediate Advice?
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                    Speak directly with our senior operations supervisor for {service.title}.
+                  </p>
 
-                <a
-                  href={companyData.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2"
-                >
-                  <span>Chat on WhatsApp</span>
-                </a>
-              </div>
+                  <a
+                    href={`tel:${companyData.phones.primary}`}
+                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-orange to-amber text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-2.5 shadow-glow-orange hover:shadow-lg transition"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Call {companyData.phones.primaryFormatted}</span>
+                  </a>
 
-              {/* Other Services list */}
-              <div className="bg-slate-50 border border-slate-200 p-6 rounded-3xl">
-                <h4 className="font-heading font-bold text-base text-navy mb-4">
-                  Other Relocation Solutions
-                </h4>
-                <div className="space-y-2">
-                  {otherServices.slice(0, 5).map((os) => (
-                    <Link
-                      key={os.slug}
-                      href={`/${os.slug}`}
-                      className="block p-2.5 rounded-xl hover:bg-white text-xs font-semibold text-slate-700 hover:text-orange transition border border-transparent hover:border-slate-200"
-                    >
-                      {os.title} →
-                    </Link>
-                  ))}
+                  <a
+                    href={companyData.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition"
+                  >
+                    <span>Chat on WhatsApp</span>
+                  </a>
                 </div>
               </div>
             </div>
