@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ServiceQuoteForm from "@/components/services/ServiceQuoteForm";
+import RateListTable from "@/components/services/RateListTable";
 import { servicesData, getServiceBySlug } from "@/data/services";
 import { companyData } from "@/data/company";
 import {
@@ -103,7 +104,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       </section>
 
       {/* Overview & Features */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="pt-10 sm:pt-14 pb-8 sm:pb-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 space-y-8">
@@ -227,6 +228,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Packers and Movers Rate List for Nearby in India */}
+      <RateListTable />
     </div>
   );
 }

@@ -37,8 +37,8 @@ export default function AboutPage() {
                 <div className="flex items-center justify-center gap-0.5 text-amber-500 text-xs">
                   {"★".repeat(5)}
                 </div>
-                <div className="text-lg font-extrabold text-navy font-heading mt-0.5">4.9 / 5.0</div>
-                <div className="text-[11px] text-slate-500 font-medium whitespace-nowrap">4,850+ Google Reviews</div>
+                <div className="text-lg font-extrabold text-navy font-heading mt-0.5">{companyData.stats.googleRating}★</div>
+                <div className="text-[11px] text-slate-500 font-medium whitespace-nowrap">Over {companyData.stats.totalReviews} Genuine Reviews</div>
               </div>
 
               <div className="bg-slate-50 border border-slate-200/80 rounded-2xl px-4 py-3 text-center shadow-xs">
@@ -170,7 +170,7 @@ export default function AboutPage() {
       {/* Relocation Assurance & Nationwide Infrastructure */}
       <section className="py-8 sm:py-10 bg-slate-50 border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 text-navy border border-slate-200/90 shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 text-navy border border-slate-200/90 shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative overflow-hidden">
             <div className="space-y-3.5 max-w-2xl relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange/10 text-orange text-xs font-bold uppercase tracking-wider border border-orange/20">
                 <ShieldCheck className="w-3.5 h-3.5 text-orange" />
@@ -183,7 +183,7 @@ export default function AboutPage() {
                 From specialized multi-layer packing and custom crating to sealed weatherproof container trucks, every relocation is executed by our certified in-house crew with 100% transit insurance and zero hidden fees.
               </p>
               
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200/70">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   100% Transit Safe Protocol
@@ -201,7 +201,7 @@ export default function AboutPage() {
 
             <Link
               href="/contact"
-              className="relative z-10 px-8 py-4 rounded-xl bg-orange hover:bg-orange-hover text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-glow-orange hover:shadow-xl whitespace-nowrap active:scale-98 shrink-0 cursor-pointer"
+              className="relative z-10 w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-orange hover:bg-orange-hover text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 shadow-glow-orange hover:shadow-xl whitespace-nowrap active:scale-98 shrink-0 cursor-pointer"
             >
               <span>Get A Free Moving Quote</span>
               <ArrowRight className="w-4 h-4" />
@@ -229,7 +229,7 @@ export default function AboutPage() {
 
           {/* 4 Feature Stat Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-7">
-            {/* Stat 1: 22+ Years of Experience */}
+            {/* Stat 1: 15+ Years of Relocation Excellence */}
             <div className="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-soft hover:shadow-xl hover:border-orange/40 hover:-translate-y-1.5 transition-all duration-300 group overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange to-amber opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div>
@@ -242,13 +242,13 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <div className="text-4xl sm:text-5xl font-extrabold font-heading text-navy group-hover:text-orange transition-colors tracking-tight">
-                  22+
+                  {companyData.stats.yearsExperience}
                 </div>
                 <div className="text-base sm:text-lg font-bold text-navy mt-1.5">
-                  Years of Experience
+                  Years of Relocation Excellence
                 </div>
                 <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                  Decades of specialized packing, handling, and pan-India highway moving expertise.
+                  Over 15+ years of specialized packing, handling, and pan-India highway moving expertise.
                 </p>
               </div>
               <div className="pt-4 mt-4 border-t border-slate-100">

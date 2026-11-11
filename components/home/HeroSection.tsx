@@ -105,12 +105,12 @@ export default function HeroSection() {
             </div>
 
             {/* CTA action buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4">
               <a
                 href={`tel:${companyData.phones.primary}`}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange to-amber hover:from-orange-hover hover:to-orange text-white font-bold text-base shadow-glow-orange hover:shadow-xl transition-all flex items-center justify-center gap-2.5 group cursor-pointer"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange to-amber hover:from-orange-hover hover:to-orange text-white font-bold text-sm sm:text-base shadow-glow-orange hover:shadow-xl transition-all flex items-center justify-center gap-2.5 group cursor-pointer"
               >
-                <Phone className="w-5 h-5 text-white" />
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 <span>Call Now: {companyData.phones.primaryFormatted}</span>
               </a>
 
@@ -118,9 +118,9 @@ export default function HeroSection() {
                 href={companyData.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-base border border-white/20 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm sm:text-base border border-white/20 transition-all flex items-center justify-center gap-2"
               >
-                <WhatsAppIcon className="w-5 h-5 fill-[#25D366]" />
+                <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 fill-[#25D366]" />
                 <span>WhatsApp Instant Estimate</span>
                 <ArrowRight className="w-4 h-4 text-emerald-400" />
               </a>

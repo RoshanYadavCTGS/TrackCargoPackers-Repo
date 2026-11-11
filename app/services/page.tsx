@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { servicesData } from "@/data/services";
+import RateListTable from "@/components/services/RateListTable";
 import {
   ArrowRight,
   ShieldCheck,
@@ -33,7 +34,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services List */}
-      <section className="py-16 sm:py-24">
+      <section className="pt-8 sm:pt-12 pb-4 sm:pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
             {servicesData.map((service, idx) => {
@@ -115,6 +116,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Packers and Movers Rate List for Nearby in India */}
+      <RateListTable />
     </div>
   );
 }

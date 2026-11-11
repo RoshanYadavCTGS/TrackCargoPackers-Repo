@@ -213,8 +213,12 @@ export default function CostCalculator() {
 
         {activeTab === "domestic" && (
           <div className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden shadow-soft">
+            <div className="lg:hidden bg-amber-50 px-4 py-2 border-b border-amber-200/70 text-[11px] text-amber-900 font-semibold flex items-center justify-between">
+              <span>⇄ Swipe horizontally to view distance tariffs</span>
+              <span className="text-orange font-bold">Rates</span>
+            </div>
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse min-w-[700px]">
                 <thead>
                   <tr className="bg-navy text-white text-xs sm:text-sm font-heading font-bold">
                     <th className="py-4 px-6">Home Size / Move Type</th>
@@ -269,8 +273,12 @@ export default function CostCalculator() {
 
         {activeTab === "vehicle" && (
           <div className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden shadow-soft">
+            <div className="lg:hidden bg-amber-50 px-4 py-2 border-b border-amber-200/70 text-[11px] text-amber-900 font-semibold flex items-center justify-between">
+              <span>⇄ Swipe horizontally to view vehicle tariffs</span>
+              <span className="text-orange font-bold">Rates</span>
+            </div>
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse min-w-[700px]">
                 <thead>
                   <tr className="bg-navy text-white text-xs sm:text-sm font-heading font-bold">
                     <th className="py-4 px-6">Vehicle Category</th>

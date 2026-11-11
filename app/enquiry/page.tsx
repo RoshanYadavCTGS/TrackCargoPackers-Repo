@@ -214,7 +214,7 @@ export default function EnquiryPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-orange to-amber hover:from-orange-hover hover:to-orange text-white font-bold text-sm uppercase tracking-wider shadow-glow-orange hover:shadow-lg transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full px-4 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-orange to-amber hover:from-orange-hover hover:to-orange text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-glow-orange hover:shadow-lg transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {loading ? (
                     <span>Registering Survey Request...</span>

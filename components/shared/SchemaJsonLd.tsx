@@ -45,7 +45,7 @@ export default function SchemaJsonLd() {
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.8",
-      reviewCount: "1240",
+      reviewCount: "1200",
       bestRating: "5",
       worstRating: "1",
     },
